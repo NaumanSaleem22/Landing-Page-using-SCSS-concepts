@@ -1,0 +1,117 @@
+.card{
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 50rem;
+
+
+    &__side{
+    height: 50rem;
+    transition: .4s all ease-in-out;
+    position: absolute;
+    top:0;
+    left: 0;
+    backface-visibility: hidden;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 2rem rgba($color-black,.15);
+    width: 100%;
+    
+        &--front{
+            background-color: $color-white;
+        }
+
+        &--back{
+            background-image: linear-gradient(to bottom,$color-primary-dark,$color-primary-light);
+            transform: rotateY(180deg);
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(180deg);
+    }
+    &:hover &__side--back {
+        transform: rotateY(0deg);
+    }
+
+    // Front side
+    &__picture{
+        background-size: cover;
+        background-blend-mode: color-dodge ;
+        height: 23rem;
+        clip-path: polygon(0 0 ,100% 0, 100% 85%, 0 100%);
+        -webkit-clip-path: polygon(0 0 ,100% 0, 100% 89%, 0 100%);
+
+        &--1{
+            background-image:  linear-gradient(to right,$color-primary-dark,$color-primary-light), url(../../img/nat-5.jpg);
+        }
+    }
+
+    &__heading{
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: $color-white;
+        position: absolute;
+        top:12rem;
+        right:2rem;
+        text-align: right;
+        width: 75%;
+    }
+
+    &__heading-span{
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        padding: 1rem 1rem;
+        background-image: linear-gradient(
+            to right bottom, rgba($color-primary-dark,.85),
+            rgba($color-primary-light,.85)
+        );
+    }
+
+    &__details{
+        padding: 3rem;
+        ul{
+            list-style-type: none;
+            width: 80%;
+            margin: 0 auto;
+            
+            li{
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+                &:not(:last-child){
+                  border-bottom: 1px solid #eee;
+                }
+            }
+        }
+
+    }
+
+    // Backside
+    &__cta{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        width: 90%;
+        text-align: center;  
+        color: $color-white;
+    }
+
+    &price-box{
+        text-align: center; 
+        margin-bottom: 8rem;
+    }
+
+    &__price-only{
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+
+    &__price-value{
+        font-size: 6rem;
+        font-weight: 100;
+    }
+}
